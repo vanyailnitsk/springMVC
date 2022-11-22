@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <meta charset="UTF-8">
+  <title>Hello</title>
+</head>
+<body>
+<h3>Ваня</h3>
+<h3 th:text="'Edit user: '+${user.login}"></h3>
+<form th:method="PATCH" th:action="@{/users/{id}(id=${user.id})}" th:object="${user}">
+
+  <label for="name">Name:</label>
+  <input type="text" th:field="*{name}" id="name" th:value="${user.name}"><br>
+
+  <label for="email">Email:</label>
+  <input type="text" th:field="*{email}" id="email" th:value="${user.email}"><br>
+
+  <label for="password">Password:</label>
+  <input type="text" th:field="*{password}" id="password" th:value="${user.password}"><br><br>
+  <input type="submit" value="Update">
+</form>
+<form th:method="DELETE" th:action="@{/users/{id}(id=${user.id})}" th:object="${user}">
+  <p>Danger Zone!</p>
+  <input type="submit" value="Delete User">
+</form>
+</body>
+</html>

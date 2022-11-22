@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  >
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${user.login}"></title>
+</head>
+<body>
+<img th:src="@{/resources/{id}/ava.jpeg(id=${user.id})}" height="200">
+<h2 th:text="${user.name}==null ? 'No such user' : 'Имя: '+${user.name}"></h2>
+
+<h3 th:text="'Id: '+${user.id}"></h3>
+<h3><a th:href="@{/users/{id}/edit(id=${user.id})}">Edit</a></h3>
+</body>
+</html>
